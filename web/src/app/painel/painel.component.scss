@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+}
+
+.shadow {
+    box-shadow: 1px, 1px, 1px, #000;
+    padding-bottom: 1px;
+}
+
+.item-basic {
+    flex-grow: 0.5;
+}
+
+.item-main {
+    flex-grow: 5;
+}

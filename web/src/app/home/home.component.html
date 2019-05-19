@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <h1 class="title">Home</h1>
+  <div class="row">
+    <div class="col-4">
+      <button type="button" class="btn btn-primary">Primary</button>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-primary">Secondary</button>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-primary">Primary</button>
+    </div>
+  </div>
+  <p *ngIf="device">Describing content from device</p>
+  <ul>
+    <li>Manufacturer: {{device.manufacturer}}</li>
+    <li>is Virtual? {{device.isVirtual}}</li>
+    <li>Version: {{device.version}}</li>
+    <li>Platform version: {{device.platformVersion}}</li>
+    <li>Platform id: {{device.platformId}}</li>
+    <li>Device Version: {{device.version}}</li>
+  </ul>
+  <a href="https://www.google.com">Google open chrome</a>
+  <button class="button" (click)="openExternalBrowser()">Open google here.</button>
+</div>
