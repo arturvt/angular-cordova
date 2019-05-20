@@ -1,0 +1,8 @@
+<h3>Create a new todo</h3>
+<div class="form-group">
+  <input class="form-control" [(ngModel)]="current.title" placeholder="Title" />
+</div>
+<div class="form-group">
+  <input class="form-control" [(ngModel)]="current.content" placeholder="Content" />
+</div>
+<button class="btn btn-primary" (click)="add()" routerLink="/">Add</button>

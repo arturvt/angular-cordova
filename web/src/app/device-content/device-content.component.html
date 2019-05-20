@@ -1,0 +1,6 @@
+<h3>Device info</h3>
+<section class="container">
+  <div class="item" *ngFor="let item of visibleItems">
+   {{item.title}}: <span>{{device[item.key]}}</span>
+  </div>
+</section>

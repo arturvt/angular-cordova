@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CordovaService } from '../cordova.service';
+import { Todo } from '../models/todo';
+import { FormControl } from '@angular/forms';
+import { TodosService } from '../todos.service';
+
 
 @Component({
   selector: 'app-home',
@@ -9,23 +13,20 @@ import { CordovaService } from '../cordova.service';
 export class HomeComponent implements OnInit {
 
   device: any;
+  todos: Todo[];
 
-  constructor(private cordova: CordovaService) { }
+  constructor(private cordova: CordovaService,
+              private todoService: TodosService) { }
 
   ngOnInit() {
-    console.log('onInit Home');
-    console.log(this.cordova.cordova);
     this.device = this.cordova.cordova;
+    this.todos = this.todoService.allTodos;
   }
-
   get keys() {
     return Object.keys(this.device);
   }
 
   public openExternalBrowser() {
-    console.log('Open external');
-    
     this.cordova.openLinkInBrowser('https://google.com/');
-
   }
 }
