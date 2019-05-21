@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Todo } from './models/todo';
+import { Todo } from './models/todo/todo.model';
+import { TodoBuilder } from './models/todo/todoBuilder';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,13 @@ export class TodosService {
 
   loadTodos(): Array<Todo> {
     const all = new Array<Todo>();
-    const sample = new Todo();
-    sample.title = 'Some title';
-    sample.content = 'Some Content';
-    sample.created = new Date();
-    all.push(sample);
+
+    const todoSample = new TodoBuilder()
+      .setContent('Some content')
+      .setTitle('some title')
+      .build();
+
+    all.push(todoSample);
     return all;
   }
 
