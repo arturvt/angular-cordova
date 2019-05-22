@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { PainelComponent } from './painel/painel.component';
 import { DeviceContentComponent } from './device-content/device-content.component';
 import { CreateItemComponent } from './create-item/create-item.component';
+import { HeaderComponent } from './header/header.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { CreateItemComponent } from './create-item/create-item.component';
     HomeComponent,
     PainelComponent,
     DeviceContentComponent,
-    CreateItemComponent
+    CreateItemComponent,
+    HeaderComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule
   ],
   providers: [],

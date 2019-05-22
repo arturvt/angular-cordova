@@ -1,10 +1,14 @@
-<p>Total: {{todos.length}}</p>
-<div *ngFor="let todo of todos; let i = index" class="card">
-  <div class="card-header">[{{i+1}}]{{todo.title}}</div>
-  <div class="card-body text-left">{{todo.content}}</div>
-  <div class="card-footer text-muted">{{todo.created | date:'medium'}}</div>
+<div class="container">
+  <div class="item">
+    <p>Open browser below</p>
+    <a href="https://www.google.com">Google</a>
+  </div>
+  <div class="item">
+      <p>Usin href trying to intercept</p>
+      <a href="https://www.bing.com">Bing</a>
+    </div>
+  <div class="item">
+    <p>Open using native with button</p>
+    <button class="button" (click)="openExternalBrowser()">Google using internal.</button>
+  </div>
 </div>
-
-<h3>Open browser below</h3>
-<a href="https://www.google.com">Google open chrome</a>
-<button class="button" (click)="openExternalBrowser()">Open google here.</button>

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CordovaService } from '../cordova.service';
-import { Todo } from '../models/todo/todo.model';
-import { TodosService } from '../todos.service';
 import { RequesterService } from '../requester.service';
 
 
@@ -13,16 +11,12 @@ import { RequesterService } from '../requester.service';
 export class HomeComponent implements OnInit {
 
   device: any;
-  todos: Todo[];
 
   constructor(private requester: RequesterService,
-              private cordova: CordovaService,
-              private todoService: TodosService) { }
+              private cordova: CordovaService) { }
 
   ngOnInit() {
     this.device = this.cordova.cordova;
-    this.todos = this.todoService.allTodos;
-    this.requester.startCombine();
   }
   get keys() {
     return Object.keys(this.device);
