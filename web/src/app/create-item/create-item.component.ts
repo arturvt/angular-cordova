@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 import { TodosService } from '../todos.service';
 import { Todo } from '../models/todo/todo.model';
@@ -9,11 +9,16 @@ import { TodoBuilder } from '../models/todo/todoBuilder';
   templateUrl: './create-item.component.html',
   styleUrls: ['./create-item.component.scss']
 })
-export class CreateItemComponent implements OnInit {
+export class CreateItemComponent implements OnInit, AfterViewInit {
 
   constructor(private todoService: TodosService) { }
   title: string;
   content: string;
+  @ViewChild('firstFocusInput') firstFocusInput: ElementRef;
+
+  ngAfterViewInit(): void {
+    this.firstFocusInput.nativeElement.focus();
+  }
 
   ngOnInit() {
     console.log('Create component');
