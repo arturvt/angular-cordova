@@ -1,12 +1,20 @@
 <div class="container">
   <div class="item">
-    <p>Open browser below</p>
-    <a href="https://www.google.com">Google</a>
+        <p>Using html href</p>
+        <a href="https://www.google.com/">Go to google?</a>
   </div>
   <div class="item">
-      <p>Usin href trying to intercept</p>
-      <a href="https://www.bing.com">Bing</a>
-    </div>
+    <p>Using html href</p>
+    <a href="https://www.google.com/" appExternalUrl>GOOGLE with directictive</a>
+  </div>
+  <div class="item">
+    <p>Using href directive</p>
+    <a [href]="'https://www.google.com/'" appExternalUrl>Directive HREF Google</a>
+  </div>
+  <div class="item">
+    <p>Using href trying to intercept</p>
+    <a href="https://www.bing.com" appExternalUrl>Bing</a>
+  </div>
   <div class="item">
     <p>Open using native with button</p>
     <button class="button" (click)="openExternalBrowser()">Google using internal.</button>

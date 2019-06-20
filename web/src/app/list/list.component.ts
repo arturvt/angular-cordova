@@ -11,10 +11,20 @@ export class ListComponent implements OnInit {
 
   todos: Todo[];
 
+  errorMessage: string;
+
   constructor(private todoService: TodosService) { }
 
   ngOnInit() {
-    this.todos = this.todoService.allTodos;
+    this.todoService.getTodos().subscribe(
+      // (data) => this.todos = data,
+      (data) => {
+        this.todos = data;
+      },
+      (error) => {
+        this.errorMessage = `[${error.status}] - ${error.statusText} -> ${error.url}`;
+        console.log(error);
+      });
   }
 
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CordovaService } from '../cordova.service';
-import { RequesterService } from '../requester.service';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +8,13 @@ import { RequesterService } from '../requester.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   device: any;
 
-  constructor(private requester: RequesterService,
-              private cordova: CordovaService) { }
+  constructor(private cordova: CordovaService, private http: HttpClient) { }
 
   ngOnInit() {
     this.device = this.cordova.cordova;
+    this.http.get<any>('https://jsonplaceholder.typicode.com/todos/1').subscribe(a => console.log(a));
   }
   get keys() {
     return Object.keys(this.device);

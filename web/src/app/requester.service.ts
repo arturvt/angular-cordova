@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { timer, combineLatest } from 'rxjs';
+import { timer, combineLatest, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Todo } from './models/todo/todo.model';
 
 const timerOne$ = timer(1000, 4000);
 const timerTwo$ = timer(2000, 4000);
@@ -10,18 +12,9 @@ const timerThree$ = timer(3000, 4000);
 })
 export class RequesterService {
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  startCombine() {
-    combineLatest(timerOne$, timerTwo$, timerThree$)
-    .subscribe(([timerValOne, timerValTwo, timerValThree]) => {
-
-      console.log(
-        `Loop time...
-        Timer One Latest: ${timerValOne},
-        Timer Two Latest: ${timerValTwo},
-        Timer Three Latest: ${timerValThree}`
-        );
-      });
-    }
+  getTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>('api/todo');
   }
+}

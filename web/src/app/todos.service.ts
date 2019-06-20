@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './models/todo/todo.model';
 import { TodoBuilder } from './models/todo/todoBuilder';
+import { RequesterService } from './requester.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodosService {
 
-  allTodos = this.loadTodos();
-  constructor() { }
+  allTodos = this.createMockedTodos();
+  constructor(private requester: RequesterService) { }
 
-  loadTodos(): Array<Todo> {
+  createMockedTodos(): Array<Todo> {
     const all = new Array<Todo>();
 
     const todoSample = new TodoBuilder()
@@ -20,6 +22,10 @@ export class TodosService {
 
     all.push(todoSample);
     return all;
+  }
+
+  getTodos(): Observable<Todo[]> {
+    return this.requester.getTodos();
   }
 
   addNew(todo: Todo) {

@@ -1,6 +1,13 @@
-<p>Total: {{todos.length}}</p>
-<div *ngFor="let todo of todos; let i = index" class="card">
-  <div class="card-header">[{{i+1}}]{{todo.title}}</div>
-  <div class="card-body text-left">{{todo.content}}</div>
-  <div class="card-footer text-muted">{{todo.created | date:'medium'}}</div>
+<div *ngIf="todos">
+  <p>Total: {{todos.length}}</p>
+  <div *ngFor="let todo of todos; let i = index" class="card">
+    <div class="card-header">[{{i+1}}]{{todo.title}}</div>
+    <div class="card-body text-left">{{todo.content}}</div>
+    <div class="card-footer text-muted">{{todo.created | date:'medium'}}</div>
+  </div>
+</div>
+
+<div *ngIf="!todos">
+  <p>Loading todos from server...</p>
+  <p style="color: red" *ngIf="errorMessage">{{errorMessage}}</p>
 </div>

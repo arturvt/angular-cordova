@@ -10,6 +10,11 @@ import { DeviceContentComponent } from './device-content/device-content.componen
 import { CreateItemComponent } from './create-item/create-item.component';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
+import { ExternalUrlDirective } from './external-url.directive';
+import { HrefInterceptorService } from './http-interceptors/href-interceptor.service';
+import { DefaultInterceptor } from './http-interceptors/default.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,15 +24,17 @@ import { ListComponent } from './list/list.component';
     DeviceContentComponent,
     CreateItemComponent,
     HeaderComponent,
-    ListComponent
+    ListComponent,
+    ExternalUrlDirective
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, HttpClientModule],
+  providers: [HrefInterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: DefaultInterceptor,
+      multi: true,
+     }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,7 @@
+[
+    {
+        'title': string;
+        'content: string;
+        created: Date;
+    }
+]

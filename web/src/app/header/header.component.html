@@ -13,7 +13,7 @@
   </button>
   <div class="title-container">
     <div
-    *ngFor="let title of titles; index as i; trackBy: trackTitles"
+    *ngFor="let title of titles; index as i;"
     [@titleAnimation]="titleState(i, titleElement)"
     class="text-container"
     #titleElement>

@@ -15,6 +15,7 @@
   "dependencies": {
     "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
+    "cordova-ios": "^5.0.1",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-safariviewcontroller": "^1.6.0"
@@ -31,7 +32,8 @@
     },
     "platforms": [
       "android",
-      "browser"
+      "browser",
+      "ios"
     ]
   }
 }
