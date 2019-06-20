@@ -1,10 +1,12 @@
-var express = require('express')
-var router = express.Router()
-let users = require('../json/users');
+const express = require('express')
+const router = express.Router();
+const users = require('../json/users');
 
 // all users
 router.get('/', function (req, res) {
-  res.json(users)
+    let queries = req.query;
+    console.log(queries);
+    res.json(users);
 });
 
 // user by id

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let userRoute = require('./routes/user');
+let todoRoute = require('./routes/todos');
 var dateFormat = require('dateformat');
 
 // middleware that is specific to this router
@@ -20,5 +21,6 @@ router.get('/about', function (req, res) {
 })
 
 router.use('/user', userRoute);
+router.use('/todo', todoRoute);
 
 module.exports = router
