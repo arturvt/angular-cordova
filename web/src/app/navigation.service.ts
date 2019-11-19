@@ -47,9 +47,6 @@ export class NavigationService {
       const title = {key: event.snapshot.data.title, state: 0};
       this.notifyTitleChange.next(title);
       this.titleStackHistory.unshift(title);
-      console.log('---');
-      console.log(this.titleStackHistory);
-      console.log('---');
       return;
     }
   }

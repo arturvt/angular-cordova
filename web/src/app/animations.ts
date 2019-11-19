@@ -7,6 +7,27 @@ import {
   AnimationTriggerMetadata
 } from '@angular/animations';
 
+export const openClose: AnimationTriggerMetadata[] = [
+  trigger('openClose', [
+    transition('open => closed', [
+      animate('1s')
+    ]),
+    transition('closed => open', [
+      animate('0.5s')
+    ]),
+    state('open', style({
+      height: '200px',
+      opacity: 1,
+      backgroundColor: 'yellow'
+    })),
+    state('closed', style({
+      height: '100px',
+      opacity: 0.5,
+      backgroundColor: 'green'
+    }))
+  ])
+];
+
 export const titleAnimations: AnimationTriggerMetadata[] = [
     trigger('titleAnimation', [
       transition('void => title', [
@@ -61,6 +82,15 @@ export const titleAnimations: AnimationTriggerMetadata[] = [
       })),
     ])
   ];
+
+export const enterLeave: AnimationTriggerMetadata[] = [
+  trigger('fadeInOut', [
+    state('void', style({
+      opacity: 0
+    })),
+    transition('void <=> *', animate(1000)),
+  ])
+];
 
 export const fadeAnimation: AnimationTriggerMetadata[] = [
   trigger('fadeAnimation', [

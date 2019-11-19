@@ -59,8 +59,12 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  openSettings(): void {
+    console.log('Should open the settings');
+  }
+
+
   back() {
-    console.log('back');
     this.navigationServive.goBack();
   }
 

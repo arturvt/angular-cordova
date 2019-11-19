@@ -1,22 +1,47 @@
 <div class="container">
   <div class="item">
-        <p>Using html href</p>
-        <a href="https://www.google.com/">Go to google?</a>
+    <h1>Internal Urls</h1>
   </div>
   <div class="item">
-    <p>Using html href</p>
-    <a href="https://www.google.com/" appExternalUrl>GOOGLE with directictive</a>
+    <a routerLink="/info">Info via routerlink</a>
   </div>
   <div class="item">
-    <p>Using href directive</p>
-    <a [href]="'https://www.google.com/'" appExternalUrl>Directive HREF Google</a>
+    <a class="item-basic" href="http://localhost:4200/info" routerLinkActive="active">List via Http</a>
   </div>
   <div class="item">
-    <p>Using href trying to intercept</p>
-    <a href="https://www.bing.com" appExternalUrl>Bing</a>
+    <button class="button" (click)="openExternalBrowser('/info')">Open Info.</button>
   </div>
   <div class="item">
-    <p>Open using native with button</p>
-    <button class="button" (click)="openExternalBrowser()">Google using internal.</button>
+    <h1>External Urls</h1>
+  </div>
+  <div class="item">
+    <a href="https://www.google.com/">Google HREF</a>
+  </div>
+  <div class="item">
+    <a href="#" (click)="goToUrl('https://www.google.com/')">Google click event</a>
+  </div>
+  <div class="item">
+    <a href="https://www.google.com/" appExternalUrl>Google HREF with directive</a>
+  </div>
+  <div class="item">
+    <a [href]="googleUrl" appExternalUrl>Google Directive [HREF] directive</a>
+  </div>
+  <div class="item">
+    <a href="https://www.bing.com/" appExternalUrl>Bing HREF Direcive should not be intercepted</a>
+  </div>
+  <div class="item">
+    <h1>The hidden hrefs</h1>
+  </div>
+  <div class="item">
+    <a href="https://www.google.com/">
+      <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" id="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button>Some dummy button</button>
+      </div>
+    </div>
+  </a>
   </div>
 </div>

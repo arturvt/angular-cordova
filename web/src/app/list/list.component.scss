@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  width: 400px ;
+}
+
+.item {
+    width: 45px;
+    order: 1;
+    flex-grow: 1;
+}

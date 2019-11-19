@@ -9,7 +9,6 @@ import { HrefInterceptorService } from './http-interceptors/href-interceptor.ser
 export class AppComponent {
   title = 'angular-cordova';
 
-  constructor(private hrefInterceptor: HrefInterceptorService) {
-
-  }
+  // constructor() {console.log('empty constructor. ');}
+  constructor(private hrefInterceptor: HrefInterceptorService) {}
 }

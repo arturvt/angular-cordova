@@ -1,11 +1,35 @@
+<h1>Animations...</h1>
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+  <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>
+<button (click)="toggle()">Toggle</button>
+<h3>Enter and Leave animation</h3>
+
+<button (click)="addItem()">Add List</button>
+<button (click)="removeItem()">Remove List</button>
+
+<div class="container" style="width:200px; margin-left: 20px">
+  <p *ngFor="let l of listItem;let i = index">{{i}} - {{l}}</p>
+</div>
+
+
+<!-- <div style="width:200px; margin-left: 20px">
+  <ul>
+    <li *ngFor="let list of listItem; let i = index" [@EnterLeave]="'flyIn'">
+      {{i}} - {{list}}
+    </li>
+  </ul>
+</div> -->
+
 <div *ngIf="todos">
-  <p>Total: {{todos.length}}</p>
-  <div *ngFor="let todo of todos; let i = index" class="card">
+  <p>Total: {{todos.length}} items</p>
+  <div class="card" *ngFor="let todo of todos; let i = index">
     <div class="card-header">[{{i+1}}]{{todo.title}}</div>
     <div class="card-body text-left">{{todo.content}}</div>
     <div class="card-footer text-muted">{{todo.created | date:'medium'}}</div>
   </div>
 </div>
+
 
 <div *ngIf="!todos">
   <p>Loading todos from server...</p>

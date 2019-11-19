@@ -9,11 +9,13 @@ export class ExternalUrlDirective {
 
     @HostListener('click', ['$event'])
     clicked(event: Event) {
+        console.log('ExternalUrlDirective');
         const url = this.el.nativeElement.href;
         if (!url) {
             return;
         }
 
+        console.log(`Url: ${url}`);
         if (whiteListDomains.some((whiteListedDomain) => url.indexOf(whiteListedDomain) > 0)) {
             console.log(`Internal: ${url}`);
             event.preventDefault();
