@@ -14,7 +14,7 @@ export class CreateItemComponent implements OnInit, AfterViewInit {
   constructor(private todoService: TodosService) { }
   title: string;
   content: string;
-  @ViewChild('firstFocusInput') firstFocusInput: ElementRef;
+  @ViewChild('firstFocusInput', { static: true }) firstFocusInput: ElementRef;
 
   ngAfterViewInit(): void {
     this.firstFocusInput.nativeElement.focus();
