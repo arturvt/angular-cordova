@@ -9,30 +9,37 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    data: {title: 'Home'}
+    data: { title: 'Home' }
   },
   {
     path: 'list',
     component: ListComponent,
-    data: {title: 'List Items'}
+    data: { title: 'List Items' }
   },
   {
     path: 'info',
     component: DeviceContentComponent,
-    data: {title: 'Info'}
+    data: { title: 'Info' }
   },
   {
     path: 'create',
     component: CreateItemComponent,
-    data: {title: 'Create'}
+    data: { title: 'Create' }
+  },
+  {
+    path: '**',
+    component: HomeComponent,
+    data: { title: 'Home' }
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled',
-  })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
+    })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
