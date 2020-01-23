@@ -7,21 +7,18 @@ import { CordovaService } from '../cordova.service';
   styleUrls: ['./device-content.component.scss']
 })
 export class DeviceContentComponent implements OnInit {
-
   visibleItems = [
-
-    {title: 'Platform id', key: 'platformId'},
-    {title: 'Manufacturer', key: 'manufacturer'},
-    {title: 'Version', key: 'version'},
-    {title: 'Platform', key: 'platformId'}
+    { title: 'Platform id', key: 'platformId' },
+    { title: 'Manufacturer', key: 'manufacturer' },
+    { title: 'Version', key: 'version' },
+    { title: 'Platform', key: 'platformId' }
   ];
 
   device: any;
 
-  constructor(private cordova: CordovaService) { }
+  constructor(private cordova: CordovaService) {}
 
   ngOnInit() {
     this.device = this.cordova.cordova;
   }
-
 }

@@ -1,6 +1,11 @@
 <h3>Device info</h3>
 <section class="container">
-  <div class="item" *ngFor="let item of visibleItems">
-   {{item.title}}: <span>{{device[item.key]}}</span>
-  </div>
+  <ng-container *ngIf="visibleItems.length">
+    <div class="item" *ngFor="let item of visibleItems">
+      {{ item.title }}: <span>{{ device[item.key] }}</span>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!visibleItems.length">
+    <h1>Should show me</h1>
+  </ng-container>
 </section>

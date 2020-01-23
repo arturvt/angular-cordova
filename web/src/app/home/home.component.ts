@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   device: any;
 
-  constructor(private cordova: CordovaService, private http: HttpClient, private router: Router) { }
+  constructor(private cordova: CordovaService, private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.device = this.cordova.cordova;
@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
   }
 
   public openExternalBrowser(url: string) {
-    this.router.navigateByUrl(url);
-    // this.cordova.openLinkInBrowser('https://google.com/');
+    // this.router.navigateByUrl(url);
+    this.cordova.openLinkInBrowser(url);
   }
 
   get googleUrl(): string {

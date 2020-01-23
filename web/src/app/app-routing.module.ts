@@ -17,6 +17,10 @@ const routes: Routes = [
     data: { title: 'List Items' }
   },
   {
+    path: 'l',
+    redirectTo: 'list'
+  },
+  {
     path: 'info',
     component: DeviceContentComponent,
     data: { title: 'Info' }
