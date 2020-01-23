@@ -27,9 +27,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     }
   ];
   module.exports.metadata = {
-    "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-inappbrowser": "3.0.0",
-    "cordova-plugin-safariviewcontroller": "1.6.0"
+    "cordova-plugin-safariviewcontroller": "1.6.0",
+    "cordova-plugin-whitelist": "1.3.3"
   };
 });

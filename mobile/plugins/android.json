@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.artur.hello"
-    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.artur.hello"
     },
@@ -17,6 +14,9 @@
       "PACKAGE_NAME": "com.artur.hello"
     },
     "cordova-plugin-safariviewcontroller": {
+      "PACKAGE_NAME": "com.artur.hello"
+    },
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.artur.hello"
     }
   },
