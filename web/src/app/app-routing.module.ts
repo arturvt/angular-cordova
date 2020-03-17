@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DeviceContentComponent } from './device-content/device-content.component';
 import { CreateItemComponent } from './create-item/create-item.component';
-import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   {
@@ -13,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'list',
-    component: ListComponent,
+    loadChildren: () => import('./list/list.module').then((m) => m.ListModule),
     data: { title: 'List Items' }
   },
   {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { TodosService } from '../todos.service';
 import { Todo } from '../models/todo/todo.model';
 import { openClose } from '../animations';
@@ -10,7 +10,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./list.component.scss'],
   animations: [openClose]
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnChanges {
   todos: Todo[];
   listItem: string[];
   isOpen = false;
@@ -18,6 +18,10 @@ export class ListComponent implements OnInit {
   errorMessage: string;
 
   constructor(private todoService: TodosService, private activatedRoute: ActivatedRoute) {}
+
+  ngOnChanges(): void {
+    console.log('CHANGED!');
+  }
 
   addItem() {
     this.listItem.push(`new-${this.listItem.length}`);
@@ -34,8 +38,6 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     console.log('Checking params...');
     this.activatedRoute.queryParamMap.subscribe((queryParams: ParamMap) => {
-      console.log('Params...');
-      console.log(queryParams);
       console.log(queryParams.keys);
     });
 

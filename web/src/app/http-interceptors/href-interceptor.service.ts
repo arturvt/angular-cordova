@@ -14,9 +14,7 @@ export class HrefInterceptorService {
   }
 
   public interceptHref(clickEvent): void {
-    console.log('Intercepted');
     let currentElement = clickEvent.srcElement || clickEvent.target;
-    console.log(currentElement)
     while (currentElement) {
       if (currentElement.tagName === 'A' && currentElement.href) {
         console.log(`It has a href: ${currentElement.href}`);
