@@ -6,20 +6,27 @@
     <a routerLink="/info">Info via routerlink</a>
   </div>
   <div class="item">
-    <a class="item-basic" href="http://localhost:4200/info" routerLinkActive="active">List via Http</a>
+    <button class="button" (click)="openExternalBrowser('https://www.google.com')">Open in cordova externalBrowser.</button>
   </div>
   <div class="item">
-    <button class="button" (click)="openExternalBrowser('https://www.google.com')">Open google in external browser.</button>
+    <a target="_blank" href="https://www.google.com/">HREF Target Blank https://www.google.com/</a>
   </div>
   <div class="item">
-    <h1>External Urls</h1>
+    <a target="_blank" href="https://www.swisscom.com">Swisscom Details</a>
   </div>
   <div class="item">
-    <a href="https://www.google.com/">Google HREF</a>
+    <a target="_blank" href="/en/residential/help.html">SwisscomHelp</a>
   </div>
   <div class="item">
-    <a href="#" (click)="goToUrl('https://www.google.com/')">Google click event</a>
+    <a target="_blank" href="/info">Blank with /info</a>
   </div>
+  <div class="item">
+    <a target="_blank" href="/en/residential/help" rel="noreferrer">Help no referrer</a>
+  </div>
+  <div class="item">
+    <a target="_blank" href="/en/residential/help" rel="noopener noreferrer">help no oppener</a>
+  </div>
+
   <div class="item">
     <a href="https://www.google.com/" appExternalUrl>Google HREF with directive</a>
   </div>

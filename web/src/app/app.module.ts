@@ -12,7 +12,6 @@ import { HeaderComponent } from './header/header.component';
 import { ExternalUrlDirective } from './external-url.directive';
 import { HrefInterceptorService } from './http-interceptors/href-interceptor.service';
 import { DefaultInterceptor } from './http-interceptors/default.interceptor';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -26,7 +25,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HeaderComponent,
     ExternalUrlDirective
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, HttpClientModule, NgxSpinnerModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, HttpClientModule],
   providers: [
     HrefInterceptorService,
     {

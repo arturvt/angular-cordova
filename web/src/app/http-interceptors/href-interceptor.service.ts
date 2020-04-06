@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,22 +10,52 @@ export class HrefInterceptorService {
   private readonly absoluteProjectDirLocation = 'localhost:4200';
   private readonly hostAddress = 'localhost:4200';
 
-  constructor() {
-    document.addEventListener('click', (event) => this.interceptHref(event));
+  constructor(private router: Router) {
     this.appOrigin = window.location.origin;
   }
 
-  public interceptHref(clickEvent): void {
+  private static isHandledProgrammatically(url: string): boolean {
+    return url.startsWith('javascript:void(0)');
+  }
+
+  static isDashboard(url: string): boolean {
+    return url.indexOf('/dashboard/') > 0;
+  }
+
+  static isExternalURL(url: string): boolean {
+    if (url.startsWith('http')) {
+      return true;
+    }
+
+    if (url.startsWith('/dashboard')) {
+      return false;
+    }
+
+    return url.startsWith('/');
+  }
+
+  initService(): void {
+    console.log('Service started!');
+    window.addEventListener('click', (event) => this.interceptHref(event));
+  }
+
+
+  interceptHref(clickEvent: any): void {
+    console.log(clickEvent);
     let currentElement = clickEvent.srcElement || clickEvent.target;
     while (currentElement) {
       if (currentElement.tagName === 'A' && currentElement.href) {
-        console.log(`It has a href: ${currentElement.href}`);
+        console.log(`[intercepted!] ${currentElement.href}`);
         if (this.shouldPrevent(currentElement)) {
           clickEvent.preventDefault();
+        } else if (HrefInterceptorService.isDashboard(currentElement.href)) {
+          const originalUrl = currentElement.href;
+          const internalURL = originalUrl.substring(originalUrl.indexOf('/dashboard/'), originalUrl.length);
+          clickEvent.preventDefault();
+          this.router.navigateByUrl(internalURL);
         }
         break;
       }
-      // angular has another option. If you start using that one, when in Safari, it won't work.
       currentElement = currentElement.parentElement;
     }
   }
@@ -32,18 +64,24 @@ export class HrefInterceptorService {
     return urlStr + '?extraParam=true';
   }
 
-  private shouldPrevent(element): boolean {
+  private shouldPrevent(element: any): boolean {
     const url = element.href;
-    if (!this.isSameOrigin(url)) {
+    if (HrefInterceptorService.isHandledProgrammatically(url)) {
+      return false;
+    } else if (!this.isSameOrigin(url)) {
       this.requestNativeOpenExternalUrl(url);
       return true;
     } else if (this.isDifferentBaseHref(url)) {
       const newUrl = url.replace(this.appOrigin, this.hostAddress);
       this.requestNativeOpenExternalUrl(newUrl);
       return true;
+    } else if (!HrefInterceptorService.isDashboard(url)) {
+      this.requestNativeOpenExternalUrl(url);
+      return true;
     }
     return false;
   }
+
 
   private isDifferentBaseHref(url: string): boolean {
     return url.indexOf(this.absoluteProjectDirLocation) === -1;
@@ -54,6 +92,7 @@ export class HrefInterceptorService {
   }
 
   public requestNativeOpenExternalUrl(url: string): void {
+    console.warn(`Requesting native to open: ${url}`);
     const urlWithExtraParams = this.addExtraParameters(url);
     if (this.shouldOpenInternal(url)) {
       window.location.href = url;

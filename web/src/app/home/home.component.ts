@@ -21,18 +21,13 @@ export class HomeComponent implements OnInit {
     return Object.keys(this.device);
   }
 
-  public openExternalBrowser(url: string) {
+  openExternalBrowser(url: string) {
     // this.router.navigateByUrl(url);
+    console.log(`[openExternalBrowser] ${url}`);
     this.cordova.openLinkInBrowser(url);
   }
 
   get googleUrl(): string {
     return 'https://www.google.com/';
-  }
-
-  goToUrl(url: string) {
-    console.log(`Go to URL: ${url}`);
-    console.log(`The change is commented`);
-    // window.location.href = url;
   }
 }
