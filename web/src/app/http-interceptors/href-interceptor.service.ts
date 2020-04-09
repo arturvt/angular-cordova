@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HrefInterceptorService {
   private readonly appOrigin: string;
@@ -35,13 +34,10 @@ export class HrefInterceptorService {
   }
 
   initService(): void {
-    console.log('Service started!');
     window.addEventListener('click', (event) => this.interceptHref(event));
   }
 
-
   interceptHref(clickEvent: any): void {
-    console.log(clickEvent);
     let currentElement = clickEvent.srcElement || clickEvent.target;
     while (currentElement) {
       if (currentElement.tagName === 'A' && currentElement.href) {
@@ -81,7 +77,6 @@ export class HrefInterceptorService {
     }
     return false;
   }
-
 
   private isDifferentBaseHref(url: string): boolean {
     return url.indexOf(this.absoluteProjectDirLocation) === -1;
