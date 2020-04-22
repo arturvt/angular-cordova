@@ -14,6 +14,7 @@ import { HrefInterceptorService } from './http-interceptors/href-interceptor.ser
 import { DefaultInterceptor } from './http-interceptors/default.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LinksComponent } from './views/links/links.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     DeviceContentComponent,
     CreateItemComponent,
     HeaderComponent,
-    ExternalUrlDirective
+    ExternalUrlDirective,
+    LinksComponent
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, HttpClientModule],
   providers: [

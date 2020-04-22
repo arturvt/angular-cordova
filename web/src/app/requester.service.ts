@@ -8,10 +8,9 @@ const timerTwo$ = timer(2000, 4000);
 const timerThree$ = timer(3000, 4000);
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RequesterService {
-
   constructor(private http: HttpClient) {}
 
   getTodos(): Observable<Todo[]> {

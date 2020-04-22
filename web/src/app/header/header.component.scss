@@ -1,78 +1,8 @@
 @import '../../colors.scss';
 
 .header {
-  width:100%;
-  position:fixed;
-  top:0px;
-}
-
-.tab-container {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  height: 50px;
-  position: relative;
-  border-bottom: 1px solid $color-aluminium;
-}
-
-.title-container {
-  position: absolute;
   width: 100%;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.icon-mask {
-  position: absolute !important;
-  top: 0;
-  background-color: white;
-  width: 10px;
-  height: 100%;
-
-  &.top {
-    transform: rotate(45deg);
-    top: -2.5px;
-  }
-
-  &.bottom {
-    transform: rotate(-45deg);
-    top: 2.5px;
-  }
-}
-
-
-.text-container>h1 {
-  transition: color 0.3s linear, font-weight 0.3s linear;
-}
-
-.back-icon {
-  color: $color-blue;
-}
-
-.back-icon-ios {
-  padding: 0 5px;
-  font-weight: bold;
-}
-
-.back-icon-android {
-  padding: 0 10px;
-  font-weight: normal;
-  font-size: 25px;
-}
-
-.back-button {
-    height: 100%;
-  z-index: 5;
-}
-
-.settings-icon {
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  font-size: 23px;
-  color: blue;
-  position: absolute;
-  right: 0;
-  z-index: 5;
+  position: fixed;
+  top: 0px;
+  padding-bottom: 10px;
 }

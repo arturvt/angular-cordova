@@ -5,20 +5,16 @@ import { RequesterService } from './requester.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodosService {
-
   allTodos = this.createMockedTodos();
-  constructor(private requester: RequesterService) { }
+  constructor(private requester: RequesterService) {}
 
   createMockedTodos(): Array<Todo> {
     const all = new Array<Todo>();
 
-    const todoSample = new TodoBuilder()
-      .setContent('Some content')
-      .setTitle('some title')
-      .build();
+    const todoSample = new TodoBuilder().setContent('Some content').setTitle('some title').build();
 
     all.push(todoSample);
     return all;

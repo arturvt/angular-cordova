@@ -1,0 +1,43 @@
+<p>links works!</p>
+<div class="container">
+  <div class="item">
+    <h1>Internal Urls</h1>
+  </div>
+  <div class="item">
+    <a routerLink="/info">Info via routerlink</a>
+  </div>
+  <div class="item">
+    <button class="button" (click)="openExternalBrowser('https://www.google.com')">Open in cordova externalBrowser.</button>
+  </div>
+  <div class="item">
+    <a target="_blank" href="https://www.google.com/">HREF Target Blank https://www.google.com/</a>
+  </div>
+  <div class="item">
+    <a target="_blank" href="https://www.swisscom.com">Swisscom Details</a>
+  </div>
+  <div class="item">
+    <a target="_blank" href="/en/residential/help.html">SwisscomHelp</a>
+  </div>
+  <div class="item">
+    <a target="_blank" href="/info">Blank with /info</a>
+  </div>
+  <div class="item">
+    <a target="_blank" href="/en/residential/help" rel="noreferrer">Help no referrer</a>
+  </div>
+  <div class="item">
+    <a target="_blank" href="/en/residential/help" rel="noopener noreferrer">help no oppener</a>
+  </div>
+
+  <div class="item">
+    <a href="https://www.google.com/" appExternalUrl>Google HREF with directive</a>
+  </div>
+  <div class="item">
+    <a [href]="googleUrl" appExternalUrl>Google Directive [HREF] directive</a>
+  </div>
+  <div class="item">
+    <a href="https://www.bing.com/" appExternalUrl>Bing HREF Direcive should not be intercepted</a>
+  </div>
+  <div class="item">
+    <h1>The hidden hrefs</h1>
+  </div>
+</div>

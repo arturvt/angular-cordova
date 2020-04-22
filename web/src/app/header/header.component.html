@@ -1,32 +1,24 @@
 <header>
-  <nav class="tab-container">
-    <button
-      class="back-button"
-      (tap)="back()">
-      <i
-        class="material-icons back-icon"
-        [ngClass]="{'back-icon-android': isAndroid, 'back-icon-ios': isIOS }"
-        aria-hidden="true"
-        *ngIf="!isRoot">arrow_back
-      </i>
-      <div class="icon-mask top"></div>
-      <div class="icon-mask bottom"></div>
-    </button>
-    <div class="title-container">
-      <div
-      *ngFor="let title of titles; index as i;"
-      [@titleAnimation]="titleState(i, titleElement)"
-      class="text-container"
-      #titleElement>
-      <h1>{{currentTitle}}</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img
+          *ngIf="!isRoot"
+          title="Back"
+          (tap)="back()"
+          src="/assets/img/icons/chevron-left.svg"
+          alt=""
+          width="32"
+          height="32"
+          title="Bootstrap"
+        />
+      </div>
+      <div class="col-6">
+        <h1>{{ currentTitle }}</h1>
+      </div>
+      <div class="col">
+        <img (tap)="openSettings()" [@fadeAnimation] src="/assets/img/icons/gear.svg" alt="" width="32" height="32" title="Settings" />
       </div>
     </div>
-    <button (tap)="openSettings()" class="settings-icon" *ngIf="isRoot" [@fadeAnimation]>
-      <i class="material-icons">settings_applications</i>
-    </button>
-
-    <button class="settings-icon" (tap)="back()">
-      <i class="material-icons">settings</i>
-    </button>
-  </nav>
+  </div>
 </header>
