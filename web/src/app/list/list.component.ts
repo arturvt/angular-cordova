@@ -37,7 +37,11 @@ export class ListComponent implements OnInit {
 
     this.listItem = ['sample01', 'sample02'];
     this.todoService.getTodos().subscribe(
-      (data) => (this.todos = data.slice(0, 5)),
+      (data) => {
+        console.log('got data');
+        console.log(data);
+        this.todos = data.slice(0, 5);
+      },
       (error) => {
         this.errorMessage = `[${error.status}] - ${error.statusText} -> ${error.url}`;
         console.log(error);

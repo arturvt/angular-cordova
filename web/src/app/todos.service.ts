@@ -1,31 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './models/todo/todo.model';
-import { TodoBuilder } from './models/todo/todoBuilder';
-import { RequesterService } from './requester.service';
-import { Observable } from 'rxjs';
+import { InMemoryDataService } from './inmemory-data.service';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodosService {
-  allTodos = this.createMockedTodos();
-  constructor(private requester: RequesterService) {}
-
-  createMockedTodos(): Array<Todo> {
-    const all = new Array<Todo>();
-
-    const todoSample = new TodoBuilder().setContent('Some content').setTitle('some title').build();
-
-    all.push(todoSample);
-    return all;
-  }
+  allTodos: Todo[] = [];
+  constructor(private http: HttpClient) {}
 
   getTodos(): Observable<Todo[]> {
-    return this.requester.getTodos();
+    return of(this.allTodos);
   }
 
   addNew(todo: Todo) {
     todo.created = new Date();
     this.allTodos.unshift(todo);
+    console.log(this.allTodos);
   }
 }

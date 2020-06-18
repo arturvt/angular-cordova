@@ -1,17 +1,13 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-
 import { TodosService } from '../todos.service';
-import { Todo } from '../models/todo/todo.model';
-import { TodoBuilder } from '../models/todo/todoBuilder';
 
 @Component({
   selector: 'app-create-item',
   templateUrl: './create-item.component.html',
-  styleUrls: ['./create-item.component.scss']
+  styleUrls: ['./create-item.component.scss'],
 })
 export class CreateItemComponent implements OnInit, AfterViewInit {
-
-  constructor(private todoService: TodosService) { }
+  constructor(private todoService: TodosService) {}
   title: string;
   content: string;
   @ViewChild('firstFocusInput', { static: true }) firstFocusInput: ElementRef;
@@ -25,12 +21,14 @@ export class CreateItemComponent implements OnInit, AfterViewInit {
   }
 
   add() {
-    this.todoService.addNew(new TodoBuilder()
-    .setContent(this.content).setTitle(this.title)
-    .build());
+    this.todoService.addNew({
+      id: 1,
+      title: this.title,
+      content: this.content,
+      created: new Date(),
+    });
 
     this.content = '';
     this.title = '';
   }
-
 }

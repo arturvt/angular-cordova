@@ -15,6 +15,8 @@ import { DefaultInterceptor } from './http-interceptors/default.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LinksComponent } from './views/links/links.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './inmemory-data.service';
 
 @NgModule({
   declarations: [
@@ -25,17 +27,24 @@ import { LinksComponent } from './views/links/links.component';
     CreateItemComponent,
     HeaderComponent,
     ExternalUrlDirective,
-    LinksComponent
+    LinksComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+  ],
   providers: [
     HrefInterceptorService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: DefaultInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
