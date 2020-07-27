@@ -15,12 +15,19 @@ module.exports = [
         "runs": true
     },
     {
+        "file": "plugins/cordova-plugin-safariviewcontroller/www/SafariViewController.js",
+        "id": "cordova-plugin-safariviewcontroller.SafariViewController",
+        "pluginId": "cordova-plugin-safariviewcontroller",
+        "clobbers": [
+            "SafariViewController"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
         "id": "cordova-plugin-inappbrowser.inappbrowser",
         "pluginId": "cordova-plugin-inappbrowser",
         "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
+            "cordova.InAppBrowser.open"
         ]
     },
     {
@@ -28,14 +35,6 @@ module.exports = [
         "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
         "pluginId": "cordova-plugin-inappbrowser",
         "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-safariviewcontroller/www/SafariViewController.js",
-        "id": "cordova-plugin-safariviewcontroller.SafariViewController",
-        "pluginId": "cordova-plugin-safariviewcontroller",
-        "clobbers": [
-            "SafariViewController"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -43,8 +42,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-inappbrowser": "3.0.0",
-    "cordova-plugin-safariviewcontroller": "1.6.0"
+    "cordova-plugin-safariviewcontroller": "1.6.0",
+    "cordova-plugin-inappbrowser": "4.0.0"
 }
 // BOTTOM OF METADATA
 });

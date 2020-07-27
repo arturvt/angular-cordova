@@ -13,10 +13,10 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.artur.hello"
     },
-    "cordova-plugin-inappbrowser": {
+    "cordova-plugin-safariviewcontroller": {
       "PACKAGE_NAME": "com.artur.hello"
     },
-    "cordova-plugin-safariviewcontroller": {
+    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.artur.hello"
     }
   },

@@ -1,33 +1,33 @@
 {
-  "_from": "cordova-plugin-inappbrowser@3.0.0",
-  "_id": "cordova-plugin-inappbrowser@3.0.0",
+  "_from": "cordova-plugin-inappbrowser@4.0.0",
+  "_id": "cordova-plugin-inappbrowser@4.0.0",
   "_inBundle": false,
-  "_integrity": "sha1-1K4A02Z2IQdRBXrSWK5K1KkWGto=",
+  "_integrity": "sha1-CB4SWz7OBeMN0A5fk5YWCSaDKio=",
   "_location": "/cordova-plugin-inappbrowser",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "cordova-plugin-inappbrowser@3.0.0",
+    "raw": "cordova-plugin-inappbrowser@4.0.0",
     "name": "cordova-plugin-inappbrowser",
     "escapedName": "cordova-plugin-inappbrowser",
-    "rawSpec": "3.0.0",
+    "rawSpec": "4.0.0",
     "saveSpec": null,
-    "fetchSpec": "3.0.0"
+    "fetchSpec": "4.0.0"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-inappbrowser/-/cordova-plugin-inappbrowser-3.0.0.tgz",
-  "_shasum": "d4ae00d36676210751057ad258ae4ad4a9161ada",
-  "_spec": "cordova-plugin-inappbrowser@3.0.0",
-  "_where": "/Users/artur/dev/playground/cordova-angular-app/mobile",
+  "_resolved": "https://bin.swisscom.com/api/npm/oce-shared-npm-virtual/cordova-plugin-inappbrowser/-/cordova-plugin-inappbrowser-4.0.0.tgz",
+  "_shasum": "081e125b3ece05e30dd00e5f9396160926832a2a",
+  "_spec": "cordova-plugin-inappbrowser@4.0.0",
+  "_where": "/Users/artur/dev/personal/angular-cordova/mobile",
   "author": {
     "name": "Apache Software Foundation"
   },
   "bugs": {
-    "url": "https://issues.apache.org/jira/browse/CB"
+    "url": "https://github.com/apache/cordova-plugin-inappbrowser/issues"
   },
   "bundleDependencies": false,
   "cordova": {
@@ -57,6 +57,10 @@
         "cordova": ">=3.1.0"
       },
       "4.0.0": {
+        "cordova": ">=3.1.0",
+        "cordova-ios": ">=4.0.0"
+      },
+      "5.0.0": {
         "cordova": ">100"
       }
     }
@@ -86,5 +90,5 @@
     "test": "npm run eslint"
   },
   "types": "./types/index.d.ts",
-  "version": "3.0.0"
+  "version": "4.0.0"
 }

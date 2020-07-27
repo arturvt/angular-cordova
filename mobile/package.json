@@ -13,11 +13,11 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "^8.1.0",
+    "cordova": "^9.0.0",
     "cordova-browser": "^6.0.0",
-    "cordova-ios": "^5.1.1",
+    "cordova-ios": "^6.0.0",
     "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-inappbrowser": "^3.1.0",
+    "cordova-plugin-inappbrowser": "^4.0.0",
     "cordova-plugin-safariviewcontroller": "^1.6.0"
   },
   "devDependencies": {
@@ -27,13 +27,12 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
-      "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-safariviewcontroller": {}
+      "cordova-plugin-safariviewcontroller": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "browser",
-      "ios",
-      "android"
+      "ios"
     ]
   }
 }
