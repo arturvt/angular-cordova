@@ -135,6 +135,16 @@
     }
     configuration.applicationNameForUserAgent = userAgent;
 
+    if (@available(iOS 13.0, *)) {
+        NSString *contentMode = [settings cordovaSettingForKey:@"PreferredContentMode"];
+        if ([contentMode isEqual: @"mobile"]) {
+            configuration.defaultWebpagePreferences.preferredContentMode = WKContentModeMobile;
+        } else if ([contentMode isEqual: @"desktop"]) {
+            configuration.defaultWebpagePreferences.preferredContentMode = WKContentModeDesktop;
+        }
+        
+    }
+
     return configuration;
 }
 
@@ -164,7 +174,9 @@
         self.CDV_ASSETS_URL = [NSString stringWithFormat:@"%@://%@", scheme, hostname];
     }
 
-    self.uiDelegate = [[CDVWebViewUIDelegate alloc] initWithTitle:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
+    CDVWebViewUIDelegate* uiDelegate = [[CDVWebViewUIDelegate alloc] initWithTitle:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
+    uiDelegate.allowNewWindows = [settings cordovaBoolSettingForKey:@"AllowNewWindows" defaultValue:NO];
+    self.uiDelegate = uiDelegate;
 
     CDVWebViewWeakScriptMessageHandler *weakScriptMessageHandler = [[CDVWebViewWeakScriptMessageHandler alloc] initWithScriptMessageHandler:self];
 
@@ -297,7 +309,7 @@ static void * KVOContext = &KVOContext;
             NSString* startFilePath = [self.commandDelegate pathForResource:[startURL path]];
             NSURL *url = [[NSURL URLWithString:self.CDV_ASSETS_URL] URLByAppendingPathComponent:request.URL.path];
             if ([request.URL.path isEqualToString:startFilePath]) {
-                url = [NSURL URLWithString:self.CDV_ASSETS_URL];
+                url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.CDV_ASSETS_URL, startURL]];
             }
             if(request.URL.query) {
                 url = [NSURL URLWithString:[@"?" stringByAppendingString:request.URL.query] relativeToURL:url];
